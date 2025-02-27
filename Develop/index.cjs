@@ -1,8 +1,7 @@
 // Importar paquetes necesarios
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown.cjs'); // Usa require para importar tu módulo
-
+const generateMarkdown = require('./utils/generateMarkdown.cjs'); // Importa el módulo de generación de README
 
 // Preguntas para el usuario
 const questions = [
@@ -29,8 +28,14 @@ const questions = [
   {
     type: 'list',
     name: 'programmingLanguage',
-    message: 'Choose a programming Language for your project:',
+    message: 'Choose a programming language for your project:',
     choices: ['HTML', 'CSS', 'JavaScript', 'Node', 'TypeScript']
+  },
+  {
+    type: 'list',
+    name: 'license',
+    message: 'Choose a license for your project:',
+    choices: ['MIT', 'GPLv3', 'Apache 2.0', 'BSD 3-Clause', 'None']
   },
   {
     type: 'input',
@@ -51,7 +56,12 @@ const questions = [
     type: 'input',
     name: 'email',
     message: 'Enter your email address:'
-  }
+  },
+  {
+    type: 'input',
+    name: 'walkthrough',
+    message: 'Enter the walkthrough video URL (if available):'
+  },  
 ];
 
 // Función para escribir el archivo README
